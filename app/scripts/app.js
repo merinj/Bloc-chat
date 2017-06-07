@@ -1,3 +1,11 @@
+/**
+ * This file bootstraps angular which is necessary for every
+ * angular project.
+ *
+ * This file also provides the configuration for angular, which is
+ * only done in this file and is performed by calling `.config`
+ */
+
 (function() {
    function config($locationProvider, $stateProvider) {
         $locationProvider
@@ -20,6 +28,8 @@
     }
 
     angular
+         // REQUIRED
          .module('blocChat',['ui.router', 'firebase'])
+         // OPTIONAL
          .config(config);
 })();

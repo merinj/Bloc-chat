@@ -5,7 +5,11 @@
     var rooms = $firebaseArray(ref);
 
     Room.all = rooms;
+    Room.getRooms = function() {
+      return rooms;
+    };
     return Room;
+    // { all: ... }
   }
 
   angular

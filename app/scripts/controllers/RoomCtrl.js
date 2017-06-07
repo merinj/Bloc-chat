@@ -1,9 +1,10 @@
-(function() {
-    function RoomCtrl($scope) {
-      scope.room = rooms;
-    }
-
-    angular
-    .module('blocChat')
-    .controller('RoomCtrl', ['Room', RoomCtrl])
-})
+// (function() {
+//     function RoomCtrl(Room) {
+//       this.rooms = Room;
+//     }
+//
+//     angular
+//     .module('blocChat')
+//     //.controller('RoomCtrl', ['Room', RoomCtrl])
+//     .controller('RoomCtrl', RoomCtrl)
+// })
