@@ -14,22 +14,24 @@
                 requireBase: false
              });
 
+        // This is where you define the various other pages
+        // on the site that you have links to (<a href=""></a>)
         $stateProvider
             .state('home', {
                 url: '/',
                 controller: 'HomeCtrl as home',
                 templateUrl: '/templates/home.html'
             })
-            .state('room', {
-               url: '/',
-               controller: 'RoomCtrl as room',
-               templateUrl: '/templates/home.html'
-           });
+             .state('room', {
+                url: '/room',
+                controller: 'RoomCtrl as room',
+                templateUrl: '/templates/newRoom.html'
+            });
     }
 
     angular
          // REQUIRED
-         .module('blocChat',['ui.router', 'firebase'])
+         .module('blocChat',['ui.router','ui.bootstrap','firebase'])
          // OPTIONAL
          .config(config);
 })();

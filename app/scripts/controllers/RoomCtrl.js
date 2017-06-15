@@ -1,10 +1,19 @@
-// (function() {
-//     function RoomCtrl(Room) {
-//       this.rooms = Room;
-//     }
-//
-//     angular
-//     .module('blocChat')
-//     //.controller('RoomCtrl', ['Room', RoomCtrl])
-//     .controller('RoomCtrl', RoomCtrl)
-// })
+(function() {
+
+  function RoomCtrl(Room,$uibModalInstance) {
+    console.log('RoomCtrl');
+    this.add = function() {
+        console.log("add method called", this.roomName);
+      Room.add(this.roomName);
+      $uibModalInstance.close();
+    };
+
+    this.cancel = function() {
+      $uibModalInstance.close();
+    };
+  }
+
+  angular
+       .module('blocChat')
+       .controller('RoomCtrl',['Room', '$uibModalInstance',RoomCtrl]);
+})();

@@ -8,6 +8,17 @@
     Room.getRooms = function() {
       return rooms;
     };
+
+    Room.add = function(room) {
+      console.log("add method in Room.js was called", room);
+      var rooms = $firebaseArray(ref);
+      rooms.$add(room);
+    };
+
+    Room.fetchMessages = function(room) {
+      return [ room, 1, 2, 3 ];
+    }
+
     return Room;
     // { all: ... }
   }

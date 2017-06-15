@@ -1,13 +1,18 @@
 <div>
   <div class="left-nav">
-    <h1>Bloc Chat</h1>
+    <h1>Bloc Chat </h1>
+    <button ng-click="home.createRoom()">Create Room</button>
     <div class="roomMenu" ng-repeat="room in home.rooms">
      <ul>
-       <li>{{room.$value}}</li>
+       <li>
+         <a ng-click="home.makeActive(room.$value)">
+           {{room.$value}}
+         </a>
+       </li>
      </ul>
     </div>
   </div>
   <div class="right-content">
-
+    <current-room active-room="home.activeRoom"></current-room>
   </div>
 </div>
