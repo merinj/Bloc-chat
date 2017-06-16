@@ -16,7 +16,7 @@
     };
 
     Room.fetchMessages = function(room) {
-      return [ room, 1, 2, 3 ];
+      return
     }
 
     return Room;
