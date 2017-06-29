@@ -19,12 +19,16 @@
 
         // We want to know when the active changes which will change
         // when the user clicks on another room in the left nav
+
+        // `newRoom` is coming from home.html when we pass in
+        // `active-room="home.activeRoom"`
         $scope.$watch('activeRoom', function(newRoom) {
           if (newRoom === undefined) {
             return;
           }
-          self.messages = Message.getByRoomId(newRoom);
-          console.log(self.messages);
+           self.activeRoom = newRoom;
+           self.messages = Message.getByRoomId(newRoom);
+           console.log("messages");
         });
       },
       controllerAs: 'currentRoom'

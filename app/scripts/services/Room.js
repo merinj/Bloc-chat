@@ -10,7 +10,6 @@
     };
 
     Room.add = function(room) {
-      console.log("add method in Room.js was called", room);
       var rooms = $firebaseArray(ref);
       rooms.$add(room);
     };

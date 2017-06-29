@@ -27,11 +27,31 @@
                 controller: 'RoomCtrl as room',
                 templateUrl: '/templates/newRoom.html'
             });
+        /*    .state('messages', {
+               url: '/messages',
+               controller: 'MessageCtrl as message',
+               templateUrl: '/templates/messages.html'
+           });*/
+    }
+
+    function BlocChatCookies($cookies,$uibModal) {
+      var currentUser = $cookies.get('blocChatCurrentUser');
+      if (!currentUser || currentUser === '') {
+        $uibModal.open({
+          //animation: Room.animationsEnabled,
+          ariaLabelledBy: 'modal-title',
+          ariaDescribedBy: 'modal-body',
+          templateUrl: 'templates/userName.html',
+          controller: 'AddUserNameCtrl',
+          controllerAs: 'userNameCtrl',
+        });
+      }
     }
 
     angular
          // REQUIRED
-         .module('blocChat',['ui.router','ui.bootstrap','firebase'])
+         .module('blocChat',['ui.router','ui.bootstrap','firebase','ngCookies'])
          // OPTIONAL
-         .config(config);
+         .config(config)
+         .run(['$cookies','$uibModal', BlocChatCookies]);
 })();

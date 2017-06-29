@@ -1,6 +1,20 @@
+<style>
+.message {
+  background-color: gray;
+}
+.message:nth-child(even) {
+  background-color: pink;
+}
+</style>
 <section>
-  <h3> Room name </h3>
-<div class="container">
-  {{currentRoom.activeRoom}}
-</div>
-</section>
+  <h3> {{currentRoom.activeRoom}} </h3>
+  <div class="">
+      <div ng-repeat="message in currentRoom.messages" class="message">
+        {{message.username}}: {{message.content}}
+      </div>
+   </div>
+  <div class="footer" ng-if="currentRoom.activeRoom != null" ng-controller="MessageCtrl as message">
+     <input type="text" name="newMessage" id="nMessage" ng-model="message.newMessage">
+     <input type="button" value="Send" ng-click="message.submit(currentRoom.activeRoom)">
+   </div>
+ </section>
